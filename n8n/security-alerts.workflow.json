@@ -1,0 +1,526 @@
+{
+  "name": "TrustLayer - Security alerts",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        }
+      },
+      "id": "schedule",
+      "name": "Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "manual-test",
+      "name": "Manual test",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "baseUrl",
+              "value": "http://127.0.0.1:8000",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "config",
+      "name": "Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        260,
+        380
+      ],
+      "notes": "Set baseUrl to where n8n can reach the TrustLayer backend. No secrets here: the key lives in the n8n credential."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Cursor is an optimisation only: duplicate alerts are impossible because the backend stores one alert per event id.\nconst s = $getWorkflowStaticData('global');\nreturn [{ json: { since_id: s.lastId || 0 } }];"
+      },
+      "id": "read-cursor",
+      "name": "Read cursor",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $('Config').first().json.baseUrl }}/api/automation/security-events",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 60000,
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "since_id",
+              "value": "={{ $json.since_id }}"
+            },
+            {
+              "name": "severity",
+              "value": "HIGH"
+            }
+          ]
+        }
+      },
+      "id": "fetch-high-severity-events",
+      "name": "Fetch high-severity events",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        740,
+        380
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "TrustLayer Automation Key"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const body = $input.first().json.body;\n// The endpoint returns a JSON array. Anything else (HTML, an object, an error page) is an unexpected response and must fail loudly, never be read as 'no events'.\nif (!Array.isArray(body)) throw new Error('unexpected response from the security-events endpoint');\nif (body.some(e => !e || typeof e.id !== 'number')) throw new Error('unexpected event shape from the security-events endpoint');\nconst events = body;\n// Alert criteria: severity HIGH (a request was blocked by the risk rules). Only ids are forwarded.\nif (!events.length) return [{ json: { none: true } }];\nreturn events.map(e => ({ json: { event_id: e.id, rule: e.rule } }));"
+      },
+      "id": "select-alerts",
+      "name": "Select alerts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        380
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "typeValidation": "loose"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.none }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ]
+        }
+      },
+      "id": "any-alerts?",
+      "name": "Any alerts?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1220,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Config').first().json.baseUrl }}/api/automation/alerts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 60000
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ event_id: $json.event_id, channel: 'dev-log' }) }}"
+      },
+      "id": "record-alert",
+      "name": "Record alert",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1460,
+        480
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "TrustLayer Automation Key"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "development-notification",
+      "name": "Development notification",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1700,
+        480
+      ],
+      "notes": "DEVELOPMENT ONLY. The alert is recorded in TrustLayer (Risk & Security page). No email, SMS or chat message is sent. Swap this node for Slack/Email when a destination exists."
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.all().map(i => i.json);\nconst fresh = rows.filter(r => r.duplicate === false).length;\nconst dup = rows.filter(r => r.duplicate === true).length;\nconst ids = $('Select alerts').all().map(i => i.json.event_id).filter(Boolean);\nconst s = $getWorkflowStaticData('global');\nif (ids.length) s.lastId = Math.max(s.lastId || 0, ...ids);\nreturn [{ json: { detail: `${fresh} new alert(s) recorded, ${dup} already recorded; exec ${$execution.id}`, key: `alerts-${Math.max(...ids)}` } }];"
+      },
+      "id": "summarise",
+      "name": "Summarise",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1940,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Config').first().json.baseUrl }}/api/automation/workflow-runs",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 60000
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Idempotency-Key",
+              "value": "={{ 'run-alerts-' + $execution.id }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ workflow: 'security-alerts', status: 'SUCCESS', attempt: 1, detail: $json.detail }) }}"
+      },
+      "id": "report-alerts",
+      "name": "Report alerts",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2180,
+        480
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "TrustLayer Automation Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Config').first().json.baseUrl }}/api/automation/workflow-runs",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 60000
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Idempotency-Key",
+              "value": "={{ 'run-alerts-' + $execution.id }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ workflow: 'security-alerts', status: 'SUCCESS', attempt: 1, detail: 'no new high-severity events; exec ' + $execution.id }) }}"
+      },
+      "id": "report-no-new-events",
+      "name": "Report no new events",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1460,
+        260
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "TrustLayer Automation Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Config').first().json.baseUrl }}/api/automation/workflow-runs",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 60000
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Idempotency-Key",
+              "value": "={{ 'run-alerts-' + $execution.id + '-failed' }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ workflow: 'security-alerts', status: 'FAILED', attempt: 3, detail: 'alert routing failed (exec ' + $execution.id + ')' }) }}"
+      },
+      "id": "report-failure",
+      "name": "Report failure",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        980,
+        620
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "TrustLayer Automation Key"
+        }
+      },
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "errorType": "errorMessage",
+        "errorMessage": "TrustLayer security alerts workflow failed (see Automation page for the run report)"
+      },
+      "id": "fail-execution",
+      "name": "Fail execution",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        620
+      ],
+      "notes": "Marks the n8n execution as failed after the failure was reported to TrustLayer. Static message only."
+    }
+  ],
+  "connections": {
+    "Schedule": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual test": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Read cursor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read cursor": {
+      "main": [
+        [
+          {
+            "node": "Fetch high-severity events",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch high-severity events": {
+      "main": [
+        [
+          {
+            "node": "Select alerts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Report failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select alerts": {
+      "main": [
+        [
+          {
+            "node": "Any alerts?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Report failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Report failure": {
+      "main": [
+        [
+          {
+            "node": "Fail execution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Any alerts?": {
+      "main": [
+        [
+          {
+            "node": "Report no new events",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Record alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record alert": {
+      "main": [
+        [
+          {
+            "node": "Development notification",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Report failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Development notification": {
+      "main": [
+        [
+          {
+            "node": "Summarise",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summarise": {
+      "main": [
+        [
+          {
+            "node": "Report alerts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}
