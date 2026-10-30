@@ -42,7 +42,12 @@ def login(body: LoginIn, db: Session = Depends(get_session)):
     limiter.check(f"login:{body.username.lower()}", 10, 60)
     user = db.scalar(select(User).where(User.username == body.username, User.active.is_(True)))
     if not user or not verify_password(body.password, user.password_hash):
+        if user:  # an unknown username is not recorded: the audit trail must not be fillable with arbitrary strings
+            audit.record(db, request_id=audit.new_request_id(), actor=user.username, role=user.role, operation="auth_login", purpose="auth", fields={}, policy="auth/login",
+                         decision="DENY", reason="sign-in refused: wrong password")
         raise HTTPException(401, "Invalid username or password")
+    audit.record(db, request_id=audit.new_request_id(), actor=user.username, role=user.role, operation="auth_login", purpose="auth", fields={}, policy="auth/login",
+                 decision="ALLOW", reason="signed in")
     return {"token": create_token(user.username, user.role), "user": {"username": user.username, "role": user.role, "display_name": user.display_name}}
 
 

@@ -147,3 +147,21 @@ Old rows from before these fixes remain in the history (for example alerts execu
 - No secrets are in the workflow JSON (only the credential *name*); this is asserted by a test.
 - The Neon connection string was pasted into a chat earlier in this project: **rotate that database password** (Neon console), update `backend/.env`, and keep `.env` out of git. Treat the demo `JWT_SECRET`, `N8N_SHARED_SECRET` and `DEMO_PASSWORD` values as development placeholders; replace them before sharing the app.
 - Keep the backend bound to `127.0.0.1`. Exposing it publicly would also expose the login endpoint and demo accounts.
+
+## n8n Cloud workspace (trustlayer-n8n.app.n8n.cloud), as of 2026-10-30
+
+| Workflow | ID | Trigger | State |
+|---|---|---|---|
+| TrustLayer - Scheduled scan | `s3YQlAYMUj2aVACO` | daily 02:00 (fixed: an "every 24 hours" interval is rejected by n8n) | unpublished |
+| TrustLayer - Security alerts | `803XRsGOd1PrvwAG` | every 5 minutes | unpublished |
+| TrustLayer - Audit summary report | `RH43n7fGJMk187Qs` | daily | unpublished |
+| TrustLayer - Scheduled scan (on demand) | `QP8iouEYz5LEh7td` | webhook `trustlayer-on-demand-scan` (header auth) | unpublished |
+| TrustLayer - Security alerts (on demand) | `5g8EuHRGJ4kPFB8L` | webhook `trustlayer-on-demand-alerts` (header auth) | unpublished |
+| TrustLayer - Audit summary report (on demand) | `6Yt1GLN8u2jLos5m` | webhook `trustlayer-on-demand-summary` (header auth) | unpublished |
+
+None of them can run end to end yet. Before publishing:
+1. n8n Cloud cannot reach `localhost`: set `Config.baseUrl` in each workflow to a public https URL that reaches the TrustLayer backend.
+2. Create two credentials in n8n and attach them to the HTTP Request and Webhook nodes: **TrustLayer Automation Key** (the custom auth the
+   HTTP nodes use, carrying `N8N_SHARED_SECRET`) and **TrustLayer Trigger Key** (Header Auth, header `X-TrustLayer-Trigger-Key`, value `N8N_TRIGGER_SECRET`).
+3. In `backend/.env` set `N8N_WEBHOOK_BASE_URL=https://trustlayer-n8n.app.n8n.cloud/webhook` so the assistant calls the cloud webhooks.
+Only the on-demand scan's branching was tested, with pinned (simulated) HTTP responses.

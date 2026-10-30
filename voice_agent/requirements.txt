@@ -1,0 +1,2 @@
+livekit-agents[sarvam,tavus,silero]~=1.8
+pytest>=8

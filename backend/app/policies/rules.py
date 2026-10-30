@@ -63,6 +63,13 @@ PERMISSIONS: dict[str, set[str]] = {
     "view_all_policies": {"security_admin", "compliance_officer"},
     "manage_policies": {"security_admin"},
     "run_risk_scenario": {"security_admin"},
+    "run_workflow": {"security_admin"},
+    # B1 data-protection engine. Roles: Admin / Support / Analyst (organizer sample users); security_admin acts as Admin, "analyst" as Analyst.
+    "b1_query": {"Admin", "Support", "Analyst", "security_admin", "analyst"},
+    "b1_scan": {"Admin", "security_admin"},
+    "b1_review": {"Admin", "security_admin"},
+    "b1_compare": {"Admin", "security_admin"},
+    "b1_policy": {"Admin", "security_admin"},  # edit masking policies, read users and overview
     "view_automation": {"security_admin", "compliance_officer"},
 }
 

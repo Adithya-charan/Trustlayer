@@ -18,14 +18,16 @@ function messageFrom(detail, status) {
   return `Request failed (${status})`
 }
 
-export async function api(path, { method = 'GET', body } = {}) {
+// `raw` sends a Blob as-is (used for recorded audio); otherwise `body` is sent as JSON.
+export async function api(path, { method = 'GET', body, raw } = {}) {
   const headers = {}
-  if (body) headers['Content-Type'] = 'application/json'
+  if (raw) headers['Content-Type'] = raw.type
+  else if (body) headers['Content-Type'] = 'application/json'
   const token = getToken()
   if (token) headers.Authorization = `Bearer ${token}`
   let res
   try {
-    res = await fetch(`/api${path}`, { method, headers, body: body ? JSON.stringify(body) : undefined })
+    res = await fetch(`/api${path}`, { method, headers, body: raw || (body ? JSON.stringify(body) : undefined) })
   } catch {
     throw new ApiError(0, 'Cannot reach the TrustLayer server. Check that the backend is running, then retry.')
   }

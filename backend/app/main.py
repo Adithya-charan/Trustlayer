@@ -5,8 +5,12 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from app.api.assistant import router as assistant_router
+from app.api.b1 import router as b1_router
+from app.api.detect import router as detect_router
 from app.api.extra import router as extra_router
 from app.api.routes import router
+from app.api.voicecmd import router as voicecmd_router
 from app.core.config import get_settings
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s")
@@ -21,6 +25,10 @@ app.add_middleware(
 )
 app.include_router(router)
 app.include_router(extra_router)
+app.include_router(assistant_router)
+app.include_router(b1_router)
+app.include_router(detect_router)
+app.include_router(voicecmd_router)
 
 
 @app.exception_handler(RequestValidationError)

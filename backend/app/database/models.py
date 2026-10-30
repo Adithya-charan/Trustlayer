@@ -96,6 +96,7 @@ class AuditEvent(Base):
     risk_score: Mapped[int] = mapped_column(Integer, default=0)
     risk_signals: Mapped[list] = mapped_column(JSON, default=list)
     risk_response: Mapped[str | None] = mapped_column(String(48), nullable=True)
+    detail: Mapped[dict | None] = mapped_column(JSON, nullable=True)  # structured "why": policy path per field, old -> new for policy changes. Names and strategies only.
 
 
 class SecurityEvent(Base):
@@ -168,3 +169,53 @@ class AuditReport(Base):
     period_end: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True))
     report: Mapped[dict] = mapped_column(JSON)
     created_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class B1FieldTag(Base):
+    """Classification of one column of a B1 target database (Saffron Bank). Holds tags, confidence and detection method only:
+    never sampled values. `override` rows were set by an authorized reviewer and win over automatic detection on re-scan."""
+
+    __tablename__ = "b1_field_tags"
+    __table_args__ = (UniqueConstraint("target", "table_name", "column_name", name="uq_b1_field"),)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    target: Mapped[str] = mapped_column(String(32))
+    table_name: Mapped[str] = mapped_column(String(64))
+    column_name: Mapped[str] = mapped_column(String(64))
+    data_type: Mapped[str] = mapped_column(String(64), default="")
+    kind: Mapped[str] = mapped_column(String(32))
+    tag: Mapped[str] = mapped_column(String(32))
+    confidence: Mapped[float] = mapped_column(Float, default=0.0)
+    status: Mapped[str] = mapped_column(String(12))  # confirmed | uncertain | none
+    methods: Mapped[list] = mapped_column(JSON, default=list)
+    match_ratio: Mapped[float] = mapped_column(Float, default=0.0)
+    sample_size: Mapped[int] = mapped_column(Integer, default=0)
+    rationale: Mapped[str] = mapped_column(String(200), default="")
+    override: Mapped[bool] = mapped_column(Boolean, default=False)
+    reviewed_by: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    updated_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class B1RolePolicy(Base):
+    """Admin-edited masking strategy for every account of one role and one classification kind. Absent row = the built-in default."""
+
+    __tablename__ = "b1_role_policies"
+    __table_args__ = (UniqueConstraint("role", "kind", name="uq_b1_role_policy"),)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    role: Mapped[str] = mapped_column(String(16))
+    kind: Mapped[str] = mapped_column(String(32))
+    strategy: Mapped[str] = mapped_column(String(16))
+    updated_by: Mapped[str] = mapped_column(String(64))
+    updated_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class B1UserPolicy(Base):
+    """Admin-edited masking strategy for ONE user and one classification kind; wins over the role policy and the default."""
+
+    __tablename__ = "b1_user_policies"
+    __table_args__ = (UniqueConstraint("username", "kind", name="uq_b1_user_policy"),)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    username: Mapped[str] = mapped_column(String(64), index=True)
+    kind: Mapped[str] = mapped_column(String(32))
+    strategy: Mapped[str] = mapped_column(String(16))
+    updated_by: Mapped[str] = mapped_column(String(64))
+    updated_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), default=utcnow)

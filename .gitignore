@@ -27,3 +27,12 @@ dist/
 Thumbs.db
 .vscode/
 .idea/
+
+# Organizer dataset packs, database dumps and local data copies (never part of the submission)
+backend/data/
+datasets/
+data/
+*.dump
+*.sqlite
+*.sql.gz
+*.zip

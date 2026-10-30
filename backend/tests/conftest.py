@@ -8,6 +8,11 @@ os.environ["N8N_SHARED_SECRET"] = "test-n8n-secret-0123456789abcdef"
 os.environ["USE_PRESIDIO"] = "false"
 os.environ["BCRYPT_ROUNDS"] = "4"
 os.environ["DEMO_PASSWORD"] = "Test-Pass-1234"
+# Real provider settings in backend/.env must never leak into tests: blank them so every test starts "not configured"
+# and opts in explicitly (with fake values and mock transports).
+for _name in ("GROQ_API_KEY", "SARVAM_API_KEY", "LIVEKIT_URL", "LIVEKIT_API_KEY", "LIVEKIT_API_SECRET", "TAVUS_API_KEY", "TAVUS_FACE_ID",
+              "TAVUS_PAL_ID", "VOICE_AGENT_SECRET", "N8N_WEBHOOK_BASE_URL", "N8N_TRIGGER_SECRET"):
+    os.environ[_name] = ""
 
 import pytest
 from fastapi.testclient import TestClient

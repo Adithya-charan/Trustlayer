@@ -1,0 +1,4158 @@
+{
+  "tag": "baseline-v2",
+  "created_at": "2026-10-30T14:37:15+00:00",
+  "splits": [
+    "dev",
+    "held_out"
+  ],
+  "dataset_version": "2",
+  "ml_status": {
+    "model": "urchade/gliner_multi_pii-v1",
+    "state": "ready",
+    "error": null,
+    "threshold": 0.5
+  },
+  "dataset": {
+    "text_items": {
+      "dev": 33,
+      "held_out": 28
+    },
+    "note": "synthetic; see eval_data.py annotation rules"
+  },
+  "configs": {
+    "rules_only": {
+      "available": true,
+      "categories_in_scope": [
+        "CARD_NUMBER",
+        "EMAIL",
+        "GOVERNMENT_ID",
+        "IP_ADDRESS",
+        "PHONE"
+      ],
+      "splits": {
+        "dev": {
+          "entity_exact": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 6,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "LOCATION": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 6,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "ORGANIZATION": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "PERSON": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 17,
+                "fp": 0,
+                "fn": 12,
+                "precision": 1.0,
+                "recall": 0.5862,
+                "f1": 0.7391
+              },
+              "macro": {
+                "precision": 1.0,
+                "recall": 0.625,
+                "f1": 1.0
+              },
+              "examples": {
+                "fp": [],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 14
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 15
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 16
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 16
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 17
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 17
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 6,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 17,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "macro": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "examples": {
+                "fp": [],
+                "fn": []
+              }
+            }
+          },
+          "entity_overlap": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 6,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "LOCATION": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 6,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "ORGANIZATION": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "PERSON": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 17,
+                "fp": 0,
+                "fn": 12,
+                "precision": 1.0,
+                "recall": 0.5862,
+                "f1": 0.7391
+              },
+              "macro": {
+                "precision": 1.0,
+                "recall": 0.625,
+                "f1": 1.0
+              },
+              "examples": {
+                "fp": [],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 14
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 15
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 16
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 16
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 17
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 17
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 6,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 17,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "macro": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "examples": {
+                "fp": [],
+                "fn": []
+              }
+            }
+          },
+          "value": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PHONE": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 8,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "macro": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "examples": {
+                "fp": [],
+                "fn": []
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PHONE": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 8,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "macro": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "examples": {
+                "fp": [],
+                "fn": []
+              }
+            }
+          },
+          "column": {
+            "sensitive_column": {
+              "tp": 5,
+              "fp": 1,
+              "fn": 1,
+              "precision": 0.8333,
+              "recall": 0.8333,
+              "f1": 0.8333,
+              "tn": 3
+            },
+            "examples": {
+              "fp": [
+                {
+                  "column": "phone_model"
+                }
+              ],
+              "fn": [
+                {
+                  "column": "customer_name"
+                }
+              ]
+            }
+          },
+          "runtime_seconds": 0.01
+        },
+        "held_out": {
+          "entity_exact": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "LOCATION": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "ORGANIZATION": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 3,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "PERSON": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 16,
+                "fp": 0,
+                "fn": 11,
+                "precision": 1.0,
+                "recall": 0.5926,
+                "f1": 0.7442
+              },
+              "macro": {
+                "precision": 1.0,
+                "recall": 0.625,
+                "f1": 1.0
+              },
+              "examples": {
+                "fp": [],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 11
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 11
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 12
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 12
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 13
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 13
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 14
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 15
+                    },
+                    "category": "ORGANIZATION"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 16,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "macro": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "examples": {
+                "fp": [],
+                "fn": []
+              }
+            }
+          },
+          "entity_overlap": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "LOCATION": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "ORGANIZATION": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 3,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "PERSON": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 16,
+                "fp": 0,
+                "fn": 11,
+                "precision": 1.0,
+                "recall": 0.5926,
+                "f1": 0.7442
+              },
+              "macro": {
+                "precision": 1.0,
+                "recall": 0.625,
+                "f1": 1.0
+              },
+              "examples": {
+                "fp": [],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 11
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 11
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 12
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 12
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 13
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 13
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 14
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 15
+                    },
+                    "category": "ORGANIZATION"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 16,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "macro": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "examples": {
+                "fp": [],
+                "fn": []
+              }
+            }
+          },
+          "value": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 1,
+                  "fp": 1,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "EMAIL": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PHONE": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 7,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.875,
+                "recall": 1.0,
+                "f1": 0.9333
+              },
+              "macro": {
+                "precision": 0.9,
+                "recall": 1.0,
+                "f1": 0.9333
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 8
+                    },
+                    "category": "CARD_NUMBER"
+                  }
+                ],
+                "fn": []
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 1,
+                  "fp": 1,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "EMAIL": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PHONE": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 7,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.875,
+                "recall": 1.0,
+                "f1": 0.9333
+              },
+              "macro": {
+                "precision": 0.9,
+                "recall": 1.0,
+                "f1": 0.9333
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 8
+                    },
+                    "category": "CARD_NUMBER"
+                  }
+                ],
+                "fn": []
+              }
+            }
+          },
+          "column": {
+            "sensitive_column": {
+              "tp": 7,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tn": 3
+            },
+            "examples": {
+              "fp": [],
+              "fn": []
+            }
+          },
+          "runtime_seconds": 0.01
+        }
+      }
+    },
+    "ml_only": {
+      "available": true,
+      "categories_in_scope": [
+        "LOCATION",
+        "ORGANIZATION",
+        "PERSON"
+      ],
+      "splits": {
+        "dev": {
+          "entity_exact": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "EMAIL": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 6,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "IP_ADDRESS": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 3,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "LOCATION": {
+                  "tp": 4,
+                  "fp": 2,
+                  "fn": 2,
+                  "precision": 0.6667,
+                  "recall": 0.6667,
+                  "f1": 0.6667
+                },
+                "ORGANIZATION": {
+                  "tp": 2,
+                  "fp": 2,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 7,
+                  "fn": 0,
+                  "precision": 0.3636,
+                  "recall": 1.0,
+                  "f1": 0.5333
+                },
+                "PHONE": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                }
+              },
+              "micro": {
+                "tp": 10,
+                "fp": 11,
+                "fn": 19,
+                "precision": 0.4762,
+                "recall": 0.3448,
+                "f1": 0.4
+              },
+              "macro": {
+                "precision": 0.5101,
+                "recall": 0.3333,
+                "f1": 0.6222
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 0
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 13
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 14
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 17
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 20
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 22
+                    },
+                    "category": "PERSON"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 0
+                    },
+                    "category": "EMAIL"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 1
+                    },
+                    "category": "EMAIL"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 3
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 4
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 5
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 8
+                    },
+                    "category": "CARD_NUMBER"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 9
+                    },
+                    "category": "CARD_NUMBER"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 11
+                    },
+                    "category": "IP_ADDRESS"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "LOCATION": {
+                  "tp": 4,
+                  "fp": 2,
+                  "fn": 2,
+                  "precision": 0.6667,
+                  "recall": 0.6667,
+                  "f1": 0.6667
+                },
+                "ORGANIZATION": {
+                  "tp": 2,
+                  "fp": 2,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 7,
+                  "fn": 0,
+                  "precision": 0.3636,
+                  "recall": 1.0,
+                  "f1": 0.5333
+                }
+              },
+              "micro": {
+                "tp": 10,
+                "fp": 11,
+                "fn": 2,
+                "precision": 0.4762,
+                "recall": 0.8333,
+                "f1": 0.6061
+              },
+              "macro": {
+                "precision": 0.5101,
+                "recall": 0.8889,
+                "f1": 0.6222
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 0
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 13
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 14
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 17
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 20
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 22
+                    },
+                    "category": "PERSON"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  }
+                ]
+              }
+            }
+          },
+          "entity_overlap": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "EMAIL": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 6,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "IP_ADDRESS": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 3,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "LOCATION": {
+                  "tp": 5,
+                  "fp": 1,
+                  "fn": 1,
+                  "precision": 0.8333,
+                  "recall": 0.8333,
+                  "f1": 0.8333
+                },
+                "ORGANIZATION": {
+                  "tp": 2,
+                  "fp": 2,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 7,
+                  "fn": 0,
+                  "precision": 0.3636,
+                  "recall": 1.0,
+                  "f1": 0.5333
+                },
+                "PHONE": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                }
+              },
+              "micro": {
+                "tp": 11,
+                "fp": 10,
+                "fn": 18,
+                "precision": 0.5238,
+                "recall": 0.3793,
+                "f1": 0.44
+              },
+              "macro": {
+                "precision": 0.5656,
+                "recall": 0.3542,
+                "f1": 0.6778
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 0
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 13
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 14
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 17
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 20
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 22
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 22
+                    },
+                    "category": "PERSON"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 0
+                    },
+                    "category": "EMAIL"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 1
+                    },
+                    "category": "EMAIL"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 3
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 4
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 5
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 8
+                    },
+                    "category": "CARD_NUMBER"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 9
+                    },
+                    "category": "CARD_NUMBER"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 11
+                    },
+                    "category": "IP_ADDRESS"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "LOCATION": {
+                  "tp": 5,
+                  "fp": 1,
+                  "fn": 1,
+                  "precision": 0.8333,
+                  "recall": 0.8333,
+                  "f1": 0.8333
+                },
+                "ORGANIZATION": {
+                  "tp": 2,
+                  "fp": 2,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 7,
+                  "fn": 0,
+                  "precision": 0.3636,
+                  "recall": 1.0,
+                  "f1": 0.5333
+                }
+              },
+              "micro": {
+                "tp": 11,
+                "fp": 10,
+                "fn": 1,
+                "precision": 0.5238,
+                "recall": 0.9167,
+                "f1": 0.6667
+              },
+              "macro": {
+                "precision": 0.5656,
+                "recall": 0.9444,
+                "f1": 0.6778
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 0
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 13
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 14
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 17
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 20
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 22
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 22
+                    },
+                    "category": "PERSON"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  }
+                ]
+              }
+            }
+          },
+          "value": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "EMAIL": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 1,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "IP_ADDRESS": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 1,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "PHONE": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                }
+              },
+              "micro": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 8,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null
+              },
+              "macro": {
+                "precision": null,
+                "recall": 0.0,
+                "f1": null
+              },
+              "examples": {
+                "fp": [],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 0
+                    },
+                    "category": "EMAIL"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 1
+                    },
+                    "category": "EMAIL"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 4
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 5
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 8
+                    },
+                    "category": "CARD_NUMBER"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 10
+                    },
+                    "category": "CARD_NUMBER"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 11
+                    },
+                    "category": "GOVERNMENT_ID"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 13
+                    },
+                    "category": "IP_ADDRESS"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {},
+              "micro": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 0,
+                "precision": null,
+                "recall": null,
+                "f1": null
+              },
+              "macro": {
+                "precision": null,
+                "recall": null,
+                "f1": null
+              },
+              "examples": {
+                "fp": [],
+                "fn": []
+              }
+            }
+          },
+          "column": {
+            "sensitive_column": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 4,
+              "precision": 0.6667,
+              "recall": 0.3333,
+              "f1": 0.4444,
+              "tn": 3
+            },
+            "examples": {
+              "fp": [
+                {
+                  "column": "product_name"
+                }
+              ],
+              "fn": [
+                {
+                  "column": "email"
+                },
+                {
+                  "column": "contact"
+                },
+                {
+                  "column": "salary"
+                },
+                {
+                  "column": "remarks"
+                }
+              ]
+            }
+          },
+          "runtime_seconds": 26.04
+        },
+        "held_out": {
+          "entity_exact": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 3,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "EMAIL": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "IP_ADDRESS": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 3,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "LOCATION": {
+                  "tp": 4,
+                  "fp": 5,
+                  "fn": 0,
+                  "precision": 0.4444,
+                  "recall": 1.0,
+                  "f1": 0.6154
+                },
+                "ORGANIZATION": {
+                  "tp": 2,
+                  "fp": 1,
+                  "fn": 1,
+                  "precision": 0.6667,
+                  "recall": 0.6667,
+                  "f1": 0.6667
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 2,
+                  "fn": 0,
+                  "precision": 0.6667,
+                  "recall": 1.0,
+                  "f1": 0.8
+                },
+                "PHONE": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                }
+              },
+              "micro": {
+                "tp": 10,
+                "fp": 8,
+                "fn": 17,
+                "precision": 0.5556,
+                "recall": 0.3704,
+                "f1": 0.4444
+              },
+              "macro": {
+                "precision": 0.5926,
+                "recall": 0.3333,
+                "f1": 0.694
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 1
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 3
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 10
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 19
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 19
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 0
+                    },
+                    "category": "EMAIL"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 1
+                    },
+                    "category": "EMAIL"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 3
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 4
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 4
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 6
+                    },
+                    "category": "CARD_NUMBER"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 7
+                    },
+                    "category": "CARD_NUMBER"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 9
+                    },
+                    "category": "IP_ADDRESS"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "LOCATION": {
+                  "tp": 4,
+                  "fp": 5,
+                  "fn": 0,
+                  "precision": 0.4444,
+                  "recall": 1.0,
+                  "f1": 0.6154
+                },
+                "ORGANIZATION": {
+                  "tp": 2,
+                  "fp": 1,
+                  "fn": 1,
+                  "precision": 0.6667,
+                  "recall": 0.6667,
+                  "f1": 0.6667
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 2,
+                  "fn": 0,
+                  "precision": 0.6667,
+                  "recall": 1.0,
+                  "f1": 0.8
+                }
+              },
+              "micro": {
+                "tp": 10,
+                "fp": 8,
+                "fn": 1,
+                "precision": 0.5556,
+                "recall": 0.9091,
+                "f1": 0.6897
+              },
+              "macro": {
+                "precision": 0.5926,
+                "recall": 0.8889,
+                "f1": 0.694
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 1
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 3
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 10
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 19
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 19
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 19
+                    },
+                    "category": "ORGANIZATION"
+                  }
+                ]
+              }
+            }
+          },
+          "entity_overlap": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 3,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "EMAIL": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "IP_ADDRESS": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 3,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "LOCATION": {
+                  "tp": 4,
+                  "fp": 5,
+                  "fn": 0,
+                  "precision": 0.4444,
+                  "recall": 1.0,
+                  "f1": 0.6154
+                },
+                "ORGANIZATION": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 2,
+                  "fn": 0,
+                  "precision": 0.6667,
+                  "recall": 1.0,
+                  "f1": 0.8
+                },
+                "PHONE": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 4,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                }
+              },
+              "micro": {
+                "tp": 11,
+                "fp": 7,
+                "fn": 16,
+                "precision": 0.6111,
+                "recall": 0.4074,
+                "f1": 0.4889
+              },
+              "macro": {
+                "precision": 0.7037,
+                "recall": 0.375,
+                "f1": 0.8051
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 1
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 3
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 10
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 19
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 0
+                    },
+                    "category": "EMAIL"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 1
+                    },
+                    "category": "EMAIL"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 3
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 4
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 4
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 6
+                    },
+                    "category": "CARD_NUMBER"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 7
+                    },
+                    "category": "CARD_NUMBER"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 9
+                    },
+                    "category": "IP_ADDRESS"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "LOCATION": {
+                  "tp": 4,
+                  "fp": 5,
+                  "fn": 0,
+                  "precision": 0.4444,
+                  "recall": 1.0,
+                  "f1": 0.6154
+                },
+                "ORGANIZATION": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 2,
+                  "fn": 0,
+                  "precision": 0.6667,
+                  "recall": 1.0,
+                  "f1": 0.8
+                }
+              },
+              "micro": {
+                "tp": 11,
+                "fp": 7,
+                "fn": 0,
+                "precision": 0.6111,
+                "recall": 1.0,
+                "f1": 0.7586
+              },
+              "macro": {
+                "precision": 0.7037,
+                "recall": 1.0,
+                "f1": 0.8051
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 1
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 3
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 10
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 19
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  }
+                ],
+                "fn": []
+              }
+            }
+          },
+          "value": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 1,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "EMAIL": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 1,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "IP_ADDRESS": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 1,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                },
+                "PHONE": {
+                  "tp": 0,
+                  "fp": 0,
+                  "fn": 2,
+                  "precision": null,
+                  "recall": 0.0,
+                  "f1": null
+                }
+              },
+              "micro": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 7,
+                "precision": null,
+                "recall": 0.0,
+                "f1": null
+              },
+              "macro": {
+                "precision": null,
+                "recall": 0.0,
+                "f1": null
+              },
+              "examples": {
+                "fp": [],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 0
+                    },
+                    "category": "GOVERNMENT_ID"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 1
+                    },
+                    "category": "GOVERNMENT_ID"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 2
+                    },
+                    "category": "EMAIL"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 4
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 5
+                    },
+                    "category": "PHONE"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 7
+                    },
+                    "category": "CARD_NUMBER"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 9
+                    },
+                    "category": "IP_ADDRESS"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {},
+              "micro": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 0,
+                "precision": null,
+                "recall": null,
+                "f1": null
+              },
+              "macro": {
+                "precision": null,
+                "recall": null,
+                "f1": null
+              },
+              "examples": {
+                "fp": [],
+                "fn": []
+              }
+            }
+          },
+          "column": {
+            "sensitive_column": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 4,
+              "precision": 1.0,
+              "recall": 0.4286,
+              "f1": 0.6,
+              "tn": 3
+            },
+            "examples": {
+              "fp": [],
+              "fn": [
+                {
+                  "column": "card_no"
+                },
+                {
+                  "column": "src_ip"
+                },
+                {
+                  "column": "account_balance"
+                },
+                {
+                  "column": "email"
+                }
+              ]
+            }
+          },
+          "runtime_seconds": 18.93
+        }
+      }
+    },
+    "hybrid": {
+      "available": true,
+      "categories_in_scope": [
+        "CARD_NUMBER",
+        "EMAIL",
+        "GOVERNMENT_ID",
+        "IP_ADDRESS",
+        "LOCATION",
+        "ORGANIZATION",
+        "PERSON",
+        "PHONE"
+      ],
+      "splits": {
+        "dev": {
+          "entity_exact": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 6,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "LOCATION": {
+                  "tp": 4,
+                  "fp": 2,
+                  "fn": 2,
+                  "precision": 0.6667,
+                  "recall": 0.6667,
+                  "f1": 0.6667
+                },
+                "ORGANIZATION": {
+                  "tp": 2,
+                  "fp": 2,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 3,
+                  "fn": 0,
+                  "precision": 0.5714,
+                  "recall": 1.0,
+                  "f1": 0.7273
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 27,
+                "fp": 7,
+                "fn": 2,
+                "precision": 0.7941,
+                "recall": 0.931,
+                "f1": 0.8571
+              },
+              "macro": {
+                "precision": 0.8423,
+                "recall": 0.9583,
+                "f1": 0.8826
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 13
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 14
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 17
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 20
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 24
+                    },
+                    "category": "PERSON"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 6,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "LOCATION": {
+                  "tp": 4,
+                  "fp": 2,
+                  "fn": 2,
+                  "precision": 0.6667,
+                  "recall": 0.6667,
+                  "f1": 0.6667
+                },
+                "ORGANIZATION": {
+                  "tp": 2,
+                  "fp": 2,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 3,
+                  "fn": 0,
+                  "precision": 0.5714,
+                  "recall": 1.0,
+                  "f1": 0.7273
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 27,
+                "fp": 7,
+                "fn": 2,
+                "precision": 0.7941,
+                "recall": 0.931,
+                "f1": 0.8571
+              },
+              "macro": {
+                "precision": 0.8423,
+                "recall": 0.9583,
+                "f1": 0.8826
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 13
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 14
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 17
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 20
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 24
+                    },
+                    "category": "PERSON"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  }
+                ]
+              }
+            }
+          },
+          "entity_overlap": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 6,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "LOCATION": {
+                  "tp": 5,
+                  "fp": 1,
+                  "fn": 1,
+                  "precision": 0.8333,
+                  "recall": 0.8333,
+                  "f1": 0.8333
+                },
+                "ORGANIZATION": {
+                  "tp": 2,
+                  "fp": 2,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 3,
+                  "fn": 0,
+                  "precision": 0.5714,
+                  "recall": 1.0,
+                  "f1": 0.7273
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 28,
+                "fp": 6,
+                "fn": 1,
+                "precision": 0.8235,
+                "recall": 0.9655,
+                "f1": 0.8889
+              },
+              "macro": {
+                "precision": 0.8631,
+                "recall": 0.9792,
+                "f1": 0.9034
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 13
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 14
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 17
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 20
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 24
+                    },
+                    "category": "PERSON"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 6,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "LOCATION": {
+                  "tp": 5,
+                  "fp": 1,
+                  "fn": 1,
+                  "precision": 0.8333,
+                  "recall": 0.8333,
+                  "f1": 0.8333
+                },
+                "ORGANIZATION": {
+                  "tp": 2,
+                  "fp": 2,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 3,
+                  "fn": 0,
+                  "precision": 0.5714,
+                  "recall": 1.0,
+                  "f1": 0.7273
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 28,
+                "fp": 6,
+                "fn": 1,
+                "precision": 0.8235,
+                "recall": 0.9655,
+                "f1": 0.8889
+              },
+              "macro": {
+                "precision": 0.8631,
+                "recall": 0.9792,
+                "f1": 0.9034
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 13
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 14
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 17
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 20
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 24
+                    },
+                    "category": "PERSON"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "dev",
+                      "index": 18
+                    },
+                    "category": "LOCATION"
+                  }
+                ]
+              }
+            }
+          },
+          "value": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PHONE": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 8,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "macro": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "examples": {
+                "fp": [],
+                "fn": []
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PHONE": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 8,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "macro": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0
+              },
+              "examples": {
+                "fp": [],
+                "fn": []
+              }
+            }
+          },
+          "column": {
+            "sensitive_column": {
+              "tp": 6,
+              "fp": 2,
+              "fn": 0,
+              "precision": 0.75,
+              "recall": 1.0,
+              "f1": 0.8571,
+              "tn": 2
+            },
+            "examples": {
+              "fp": [
+                {
+                  "column": "product_name"
+                },
+                {
+                  "column": "phone_model"
+                }
+              ],
+              "fn": []
+            }
+          },
+          "runtime_seconds": 19.54
+        },
+        "held_out": {
+          "entity_exact": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "LOCATION": {
+                  "tp": 4,
+                  "fp": 4,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "ORGANIZATION": {
+                  "tp": 2,
+                  "fp": 1,
+                  "fn": 1,
+                  "precision": 0.6667,
+                  "recall": 0.6667,
+                  "f1": 0.6667
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 1,
+                  "fn": 0,
+                  "precision": 0.8,
+                  "recall": 1.0,
+                  "f1": 0.8889
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 26,
+                "fp": 6,
+                "fn": 1,
+                "precision": 0.8125,
+                "recall": 0.963,
+                "f1": 0.8814
+              },
+              "macro": {
+                "precision": 0.8708,
+                "recall": 0.9583,
+                "f1": 0.9028
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 3
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 10
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 19
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 19
+                    },
+                    "category": "ORGANIZATION"
+                  }
+                ]
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "LOCATION": {
+                  "tp": 4,
+                  "fp": 4,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "ORGANIZATION": {
+                  "tp": 2,
+                  "fp": 1,
+                  "fn": 1,
+                  "precision": 0.6667,
+                  "recall": 0.6667,
+                  "f1": 0.6667
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 1,
+                  "fn": 0,
+                  "precision": 0.8,
+                  "recall": 1.0,
+                  "f1": 0.8889
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 26,
+                "fp": 6,
+                "fn": 1,
+                "precision": 0.8125,
+                "recall": 0.963,
+                "f1": 0.8814
+              },
+              "macro": {
+                "precision": 0.8708,
+                "recall": 0.9583,
+                "f1": 0.9028
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 3
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 10
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 19
+                    },
+                    "category": "ORGANIZATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  }
+                ],
+                "fn": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 19
+                    },
+                    "category": "ORGANIZATION"
+                  }
+                ]
+              }
+            }
+          },
+          "entity_overlap": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "LOCATION": {
+                  "tp": 4,
+                  "fp": 4,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "ORGANIZATION": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 1,
+                  "fn": 0,
+                  "precision": 0.8,
+                  "recall": 1.0,
+                  "f1": 0.8889
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 27,
+                "fp": 5,
+                "fn": 0,
+                "precision": 0.8438,
+                "recall": 1.0,
+                "f1": 0.9153
+              },
+              "macro": {
+                "precision": 0.9125,
+                "recall": 1.0,
+                "f1": 0.9445
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 3
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 10
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  }
+                ],
+                "fn": []
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "EMAIL": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "LOCATION": {
+                  "tp": 4,
+                  "fp": 4,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "ORGANIZATION": {
+                  "tp": 3,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PERSON": {
+                  "tp": 4,
+                  "fp": 1,
+                  "fn": 0,
+                  "precision": 0.8,
+                  "recall": 1.0,
+                  "f1": 0.8889
+                },
+                "PHONE": {
+                  "tp": 4,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 27,
+                "fp": 5,
+                "fn": 0,
+                "precision": 0.8438,
+                "recall": 1.0,
+                "f1": 0.9153
+              },
+              "macro": {
+                "precision": 0.9125,
+                "recall": 1.0,
+                "f1": 0.9445
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 2
+                    },
+                    "category": "PERSON"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 3
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 10
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  },
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 20
+                    },
+                    "category": "LOCATION"
+                  }
+                ],
+                "fn": []
+              }
+            }
+          },
+          "value": {
+            "full": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 1,
+                  "fp": 1,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "EMAIL": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PHONE": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 7,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.875,
+                "recall": 1.0,
+                "f1": 0.9333
+              },
+              "macro": {
+                "precision": 0.9,
+                "recall": 1.0,
+                "f1": 0.9333
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 8
+                    },
+                    "category": "CARD_NUMBER"
+                  }
+                ],
+                "fn": []
+              }
+            },
+            "in_scope": {
+              "per_category": {
+                "CARD_NUMBER": {
+                  "tp": 1,
+                  "fp": 1,
+                  "fn": 0,
+                  "precision": 0.5,
+                  "recall": 1.0,
+                  "f1": 0.6667
+                },
+                "EMAIL": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "GOVERNMENT_ID": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "IP_ADDRESS": {
+                  "tp": 1,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                },
+                "PHONE": {
+                  "tp": 2,
+                  "fp": 0,
+                  "fn": 0,
+                  "precision": 1.0,
+                  "recall": 1.0,
+                  "f1": 1.0
+                }
+              },
+              "micro": {
+                "tp": 7,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.875,
+                "recall": 1.0,
+                "f1": 0.9333
+              },
+              "macro": {
+                "precision": 0.9,
+                "recall": 1.0,
+                "f1": 0.9333
+              },
+              "examples": {
+                "fp": [
+                  {
+                    "item": {
+                      "split": "held",
+                      "index": 8
+                    },
+                    "category": "CARD_NUMBER"
+                  }
+                ],
+                "fn": []
+              }
+            }
+          },
+          "column": {
+            "sensitive_column": {
+              "tp": 7,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tn": 3
+            },
+            "examples": {
+              "fp": [],
+              "fn": []
+            }
+          },
+          "runtime_seconds": 14.34
+        }
+      }
+    }
+  }
+}

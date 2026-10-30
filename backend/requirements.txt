@@ -5,10 +5,14 @@ pydantic-settings==2.6.1
 SQLAlchemy==2.0.36
 alembic==1.14.0
 psycopg[binary]==3.2.3
+PyMySQL==1.1.1
+cryptography>=42
 sqlglot==25.34.1
 PyJWT==2.10.1
 bcrypt==4.2.1
 presidio-analyzer==2.2.355
 httpx==0.28.1
+groq==1.7.0
+livekit-api==1.2.2
 pytest==8.3.4
 hypothesis==6.122.3

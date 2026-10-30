@@ -188,7 +188,7 @@
           "parameters": [
             {
               "name": "Idempotency-Key",
-              "value": "={{ 'run-report-' + $execution.id }}"
+              "value": "={{ 'run-report-' + $execution.id + '-' + $now.toMillis() }}"
             },
             {
               "name": "Content-Type",
@@ -229,7 +229,7 @@
           "parameters": [
             {
               "name": "Idempotency-Key",
-              "value": "={{ 'run-report-' + $execution.id + '-failed' }}"
+              "value": "={{ 'run-report-' + $execution.id + '-' + $now.toMillis() + '-failed' }}"
             },
             {
               "name": "Content-Type",

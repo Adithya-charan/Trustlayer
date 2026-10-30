@@ -242,7 +242,7 @@
           "parameters": [
             {
               "name": "Idempotency-Key",
-              "value": "={{ 'run-alerts-' + $execution.id }}"
+              "value": "={{ 'run-alerts-' + $execution.id + '-' + $now.toMillis() }}"
             },
             {
               "name": "Content-Type",
@@ -283,7 +283,7 @@
           "parameters": [
             {
               "name": "Idempotency-Key",
-              "value": "={{ 'run-alerts-' + $execution.id }}"
+              "value": "={{ 'run-alerts-' + $execution.id + '-' + $now.toMillis() }}"
             },
             {
               "name": "Content-Type",
@@ -324,7 +324,7 @@
           "parameters": [
             {
               "name": "Idempotency-Key",
-              "value": "={{ 'run-alerts-' + $execution.id + '-failed' }}"
+              "value": "={{ 'run-alerts-' + $execution.id + '-' + $now.toMillis() + '-failed' }}"
             },
             {
               "name": "Content-Type",

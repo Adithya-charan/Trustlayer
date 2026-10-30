@@ -3,8 +3,23 @@
 @tailwind utilities;
 
 :root { color-scheme: light; }
-body { @apply bg-slate-50 text-slate-800 antialiased; }
-:focus-visible { outline: 2px solid #2f5fb3; outline-offset: 2px; border-radius: 6px; }
+html { scroll-behavior: smooth; background: #F8FAFC; }
+body {
+  @apply bg-mist text-body antialiased;
+  font-family: ui-sans-serif, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: 'cv11', 'ss01';
+}
+h1, h2, h3 { letter-spacing: -0.02em; }
+:focus-visible { outline: 2px solid #2563EB; outline-offset: 2px; border-radius: 6px; }
+
+@layer components {
+  .glass-light { @apply border border-slate-200/80 bg-white/75 backdrop-blur-md; }
+  .text-gradient { @apply bg-gradient-to-r from-navy-600 to-violet-600 bg-clip-text text-transparent; }
+  .dash-flow { stroke-dasharray: 5 9; }
+}
+
+/* Animations are decorative only; with reduced motion they stop and the static layout remains. */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }

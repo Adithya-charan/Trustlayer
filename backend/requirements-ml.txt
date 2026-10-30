@@ -1,0 +1,2 @@
+# Optional ML detector (see docs/DETECTION.md). Without it the engine runs rules-only and says so.
+gliner==0.2.29
