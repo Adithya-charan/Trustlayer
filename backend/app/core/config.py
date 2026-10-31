@@ -122,7 +122,8 @@ class Settings(BaseSettings):
 
     @property
     def cors_list(self) -> list[str]:
-        return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
+        # An Origin header never has a trailing slash, so one pasted into the setting would never match.
+        return [o.strip().rstrip("/") for o in self.cors_origins.split(",") if o.strip().rstrip("/")]
 
     def config_problems(self) -> list[str]:
         problems = []

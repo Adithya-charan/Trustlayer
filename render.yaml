@@ -1,0 +1,50 @@
+# Render Blueprint. Secrets are never stored here: every `sync: false` value is typed into the Render dashboard.
+services:
+  - type: web
+    name: trustlayer-api
+    runtime: python
+    rootDir: backend
+    plan: starter
+    buildCommand: pip install -r requirements.txt && alembic upgrade head
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - { key: PYTHON_VERSION, value: 3.11.9 }
+      - { key: APP_ENV, value: production }
+      - { key: DATABASE_URL, sync: false }          # Neon: postgresql+psycopg://...
+      - { key: JWT_SECRET, sync: false }            # 32+ random characters
+      - { key: N8N_SHARED_SECRET, sync: false }     # 16+ random characters
+      - { key: DEMO_PASSWORD, sync: false }
+      - { key: CORS_ORIGINS, sync: false }          # exact frontend origin(s), comma-separated, no trailing slash: https://trustlayer-eight-mocha.vercel.app
+      - { key: B1_PG_SCHEMA, value: saffron_bank }
+      - { key: DETECTION_ML_ENABLED, value: "false" }
+      - { key: B1_ML_SUPPLEMENT, value: "false" }
+      - { key: GROQ_API_KEY, sync: false }
+      - { key: GROQ_MODEL, sync: false }
+      - { key: SARVAM_API_KEY, sync: false }
+      - { key: LIVEKIT_URL, sync: false }
+      - { key: LIVEKIT_API_KEY, sync: false }
+      - { key: LIVEKIT_API_SECRET, sync: false }
+      - { key: TAVUS_API_KEY, sync: false }
+      - { key: TAVUS_FACE_ID, sync: false }
+      - { key: TAVUS_PAL_ID, sync: false }
+      - { key: VOICE_AGENT_SECRET, sync: false }    # same value on the worker
+
+  # Optional: the live voice avatar needs its own always-on process.
+  - type: worker
+    name: trustlayer-voice
+    runtime: python
+    rootDir: voice_agent
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python agent.py start
+    envVars:
+      - { key: PYTHON_VERSION, value: 3.11.9 }
+      - { key: TRUSTLAYER_BACKEND_URL, sync: false }  # https://<trustlayer-api>.onrender.com
+      - { key: VOICE_AGENT_SECRET, sync: false }
+      - { key: SARVAM_API_KEY, sync: false }
+      - { key: LIVEKIT_URL, sync: false }
+      - { key: LIVEKIT_API_KEY, sync: false }
+      - { key: LIVEKIT_API_SECRET, sync: false }
+      - { key: TAVUS_API_KEY, sync: false }
+      - { key: TAVUS_FACE_ID, sync: false }
